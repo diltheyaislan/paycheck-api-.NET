@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace PaycheckAPI.Models
+namespace PaycheckAPI.Entities
 {
     public class Employee
     {
