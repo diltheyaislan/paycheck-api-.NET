@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using PaycheckAPI.Models;
+using PaycheckAPI.Entities;
 
-namespace PaycheckAPI.Data
+namespace PaycheckAPI.Infrastructure.EFCore.Data
 {
     public class DataContext : DbContext
     {
