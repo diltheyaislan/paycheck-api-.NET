@@ -11,6 +11,6 @@ namespace PaycheckAPI.Domain.Employees.Repositories
 				Task<Employee> GetByID(Guid id);        
 				Task<Employee> Create(Employee employee);        
 				Task<Employee> Update(Employee employee);        
-				Task<Employee> Delete(Employee employee);   
+				Task<int> Delete(Employee employee);   
     }
 }

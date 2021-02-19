@@ -21,24 +21,30 @@ namespace PaycheckAPI.Infrastructure.EFCore.Repositories
 			return await DataContext.Employees.ToListAsync();
 		}
 
-		public Task<Employee> GetByID(Guid id)
+		async Task<Employee> IEmployeesRepository.GetByID(Guid id)
 		{
-			throw new NotImplementedException();
-		}
-		public Task<Employee> Create(Employee employee)
-		{
-			throw new NotImplementedException();
+			return await DataContext.Employees.FindAsync(id);
 		}
 
-		public Task<Employee> Delete(Employee employee)
+		async Task<Employee> IEmployeesRepository.Create(Employee employee)
 		{
-			throw new NotImplementedException();
+			employee.Id = Guid.NewGuid();
+			DataContext.Employees.Add(employee);
+      await DataContext.SaveChangesAsync();
+			return employee;
 		}
 
-
-		public Task<Employee> Update(Employee employee)
+		async Task<Employee> IEmployeesRepository.Update(Employee employee)
 		{
-			throw new NotImplementedException();
+    	DataContext.Employees.Update(employee);
+      await DataContext.SaveChangesAsync();
+			return employee;
+		}
+
+		async Task<int> IEmployeesRepository.Delete(Employee employee)
+		{
+			DataContext.Employees.Remove(employee);
+      return await DataContext.SaveChangesAsync();
 		}
 	}
 }
