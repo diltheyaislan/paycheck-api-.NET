@@ -17,6 +17,10 @@ namespace PaycheckAPI.Infrastructure.IoC
 					services.AddScoped<IEmployeesRepository, EmployeesRepository>();
 
 					services.AddScoped<ListEmployeesService, ListEmployeesService>();
+					services.AddScoped<ShowEmployeeService, ShowEmployeeService>();
+					services.AddScoped<CreateEmployeeService, CreateEmployeeService>();
+					services.AddScoped<UpdateEmployeeService, UpdateEmployeeService>();
+					services.AddScoped<DeleteEmployeeService, DeleteEmployeeService>();
 				}
     }
 }
