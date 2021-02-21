@@ -5,6 +5,7 @@ using PaycheckAPI.Domain.Employees.Repositories;
 using PaycheckAPI.Infrastructure.EFCore.Data;
 using PaycheckAPI.Infrastructure.EFCore.Repositories;
 using PaycheckAPI.Domain.Employees.Services;
+using PaycheckAPI.Domain.Paycheck.Services;
 
 namespace PaycheckAPI.Infrastructure.IoC
 {
@@ -21,6 +22,16 @@ namespace PaycheckAPI.Infrastructure.IoC
 					services.AddScoped<CreateEmployeeService, CreateEmployeeService>();
 					services.AddScoped<UpdateEmployeeService, UpdateEmployeeService>();
 					services.AddScoped<DeleteEmployeeService, DeleteEmployeeService>();
+
+					services.AddScoped<BuildPaycheckService, BuildPaycheckService>();
+					services.AddScoped<BuildPaycheckEntriesRemunarationService, BuildPaycheckEntriesRemunarationService>();
+					services.AddScoped<BuildPaycheckEntriesDiscountService, BuildPaycheckEntriesDiscountService>();
+					services.AddScoped<CalculateINSSDiscountService, CalculateINSSDiscountService>();
+					services.AddScoped<CalculateIRPFDiscountService, CalculateIRPFDiscountService>();
+					services.AddScoped<CalculateHealthPlanDiscountService, CalculateHealthPlanDiscountService>();
+					services.AddScoped<CalculateDentalPlanDiscountService, CalculateDentalPlanDiscountService>();
+					services.AddScoped<CalculateTransportationVoucherDiscountService, CalculateTransportationVoucherDiscountService>();
+					services.AddScoped<CalculateFGTSDiscountService, CalculateFGTSDiscountService>();
 				}
     }
 }
