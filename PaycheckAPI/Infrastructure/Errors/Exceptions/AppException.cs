@@ -3,7 +3,7 @@ using System.Net;
 
 namespace PaycheckAPI.Infrastructure.Errors.Exceptions
 {
-    public class AppException: Exception
+    public class AppException : Exception
 		{
 			public HttpStatusCode Status { get; private set; }
 

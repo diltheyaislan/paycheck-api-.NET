@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using PaycheckAPI.Infrastructure.Errors.Exceptions;
 using PaycheckAPI.Infrastructure.IoC;
 
 namespace PaycheckAPI
@@ -21,7 +22,8 @@ namespace PaycheckAPI
         public void ConfigureServices(IServiceCollection services)
         {
 						ServiceIoC.execute(services, Configuration);
-            services.AddControllers();
+            services.AddControllers(options =>
+    					options.Filters.Add(new HttpResponseExceptionFilter()));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PaycheckAPI", Version = "v1" });
@@ -38,10 +40,10 @@ namespace PaycheckAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PaycheckAPI v1"));
             }
-
+						
 						app.UseExceptionHandler("/error");
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 
