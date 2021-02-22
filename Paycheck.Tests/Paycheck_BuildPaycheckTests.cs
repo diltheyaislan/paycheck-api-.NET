@@ -76,7 +76,7 @@ namespace Paycheck.Tests
 						);
 				}
 
-				[TestCase(2284.36)]
+				[TestCase(-2284.36)]
 				public async Task TestTotalDiscounts(decimal totalDiscounts)
 				{
 						PaycheckAPI.Domain.Paycheck.Models.Paycheck paycheck = await _service.execute(_employee.Id);

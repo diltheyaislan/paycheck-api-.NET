@@ -20,14 +20,14 @@ namespace PaycheckAPI.Domain.Paycheck.Models
 				public decimal GrossSalary { get; set; }
 
 				public decimal NetSalary { 
-					get { return GrossSalary - TotalDiscounts; } 
+					get { return GrossSalary - (-TotalDiscounts); } 
 				} 
 
 				public decimal TotalDiscounts { 
 					get {
-						return _Entries
+						return -(_Entries
 							.Where(entry => entry.EntryType.Equals(Models.PaycheckEntryTypeEnum.Discount))
-							.Aggregate(0m, (acc, entry) => acc + entry.Amount);
+							.Aggregate(0m, (acc, entry) => acc + entry.Amount));
 					} 
 				}
 
