@@ -13,8 +13,8 @@ namespace Paycheck.Tests
 				private CreateEmployeeService _createService;
 				private ShowEmployeeService _showService;
 
-				[OneTimeSetUp]
-        public async Task Setup()
+				[SetUp]
+        public void Setup()
         {
 						FakeEmployeesRepository fakeEmployeesRepository = new FakeEmployeesRepository();
 
