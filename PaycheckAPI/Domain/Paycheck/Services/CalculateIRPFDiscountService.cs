@@ -1,3 +1,5 @@
+using System;
+
 namespace PaycheckAPI.Domain.Paycheck.Services
 {
     public class CalculateIRPFDiscountService
@@ -20,7 +22,7 @@ namespace PaycheckAPI.Domain.Paycheck.Services
 					if (rangeValues != null)
 					{
 						decimal IRPFAmount = grossSalary * rangeValues.Aliquot / 100;
-						entry.Amount = IRPFAmount <= rangeValues.LimitAmount ? IRPFAmount : rangeValues.LimitAmount;
+						entry.Amount = IRPFAmount <= rangeValues.LimitAmount ? Decimal.Round(IRPFAmount, 2) : rangeValues.LimitAmount;
 					}
 
 					return entry;

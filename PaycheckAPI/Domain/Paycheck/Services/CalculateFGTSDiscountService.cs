@@ -1,3 +1,5 @@
+using System;
+
 namespace PaycheckAPI.Domain.Paycheck.Services
 {
     public class CalculateFGTSDiscountService
@@ -8,8 +10,10 @@ namespace PaycheckAPI.Domain.Paycheck.Services
 				{
 					Models.PaycheckEntry entry = new Models.PaycheckEntry();
 
+					decimal amount = grossSalary * DiscountPercent / 100;
+
 					entry.Description = "FGTS";
-					entry.Amount = grossSalary * DiscountPercent / 100;
+					entry.Amount = Decimal.Round(amount, 2);
 					entry.EntryType = Models.PaycheckEntryTypeEnum.Discount;
 
 					return entry;

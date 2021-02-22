@@ -1,3 +1,5 @@
+using System;
+
 namespace PaycheckAPI.Domain.Paycheck.Services
 {
     public class CalculateINSSDiscountService
@@ -19,7 +21,8 @@ namespace PaycheckAPI.Domain.Paycheck.Services
 
 					if (INSSAliquot > 0)
 					{
-						entry.Amount = grossSalary * INSSAliquot / 100;
+						decimal amount = grossSalary * INSSAliquot / 100;
+						entry.Amount = Decimal.Round(amount, 2);
 					}
 
 					return entry;
