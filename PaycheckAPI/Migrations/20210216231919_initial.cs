@@ -15,6 +15,7 @@ namespace PaycheckAPI.Migrations
                     name = table.Column<string>(type: "text", nullable: false),
                     lastName = table.Column<string>(type: "text", nullable: false),
                     document = table.Column<string>(type: "text", nullable: false),
+                    department = table.Column<string>(type: "text", nullable: false),
                     grossWage = table.Column<decimal>(type: "numeric", nullable: false),
                     admissionDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     hasHealthPlan = table.Column<bool>(type: "boolean", nullable: false),

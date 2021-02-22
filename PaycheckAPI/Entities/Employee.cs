@@ -18,6 +18,9 @@ namespace PaycheckAPI.Entities
 				public string document { get; set; }
 
 				[Required(ErrorMessage = "This field is required")]
+				public string department { get; set; }
+
+				[Required(ErrorMessage = "This field is required")]
 				public decimal grossWage { get; set; }
 
 				[Required(ErrorMessage = "This field is required")]

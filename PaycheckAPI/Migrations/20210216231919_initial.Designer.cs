@@ -34,6 +34,10 @@ namespace PaycheckAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("department")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<decimal>("grossWage")
                         .HasColumnType("numeric");
 
